@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+    <div class="col-sm-12 p-3">
+        {{ 10|price('$') }}
+        {{ 'yesterday'|dateFr }}
+        {{ '0606060606'|formatPhone }}
+        {{ 3|stars }}
+        <h1>Ajouter un nouvel article !</h1>
+        {% form_theme form 'bootstrap_5_layout.html.twig' %}
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-6">{{ form_row(form.designation) }}</div>
+            <div class="col-6">{{ form_row(form.description) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-6">{{ form_row(form.quantiteDisponible) }}</div>
+            <div class="col-6">{{ form_row(form.prix) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-6">{{ form_row(form.fournisseur) }}</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
