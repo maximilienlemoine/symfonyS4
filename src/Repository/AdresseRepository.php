@@ -63,4 +63,25 @@ class AdresseRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function findByCodePostal($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.codePostal = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByCodePostalOrderByRue($value): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.codePostal = :val')
+            ->setParameter('val', $value)
+            ->orderBy('a.adresse1', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

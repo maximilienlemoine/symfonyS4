@@ -9,12 +9,10 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello ! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/maxou/Documents/synf/www/symfonyS4/src/Controller/AdresseController.php'|file_link(0) }}">src/Controller/AdresseController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/maxou/Documents/synf/www/symfonyS4/templates/adresse/index.html.twig'|file_link(0) }}">templates/adresse/index.html.twig</a></code></li>
-    </ul>
+    {% for adresse in adresses %}
+        {{ adresse.adresse1 }}<br>
+    {% endfor %}
 </div>
 {% endblock %}
